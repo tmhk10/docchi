@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.pictures {
+	text-align:center;
+}
+
+.pictures img {
+	width:30%;
+	height:auto;
+	
+}
