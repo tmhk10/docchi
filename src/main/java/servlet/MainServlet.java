@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.FileNames;
 import model.GetPairListLogic;
-import model.Pair;
 
 /**
  * Servlet implementation class Main
@@ -37,7 +37,7 @@ public class MainServlet extends HttpServlet {
 		
 		//データベースからファイル名ペアのリストを取得、それをリクエストスコープに保存
 		GetPairListLogic getPairListLogic = new GetPairListLogic();
-		List<Pair> pairList = getPairListLogic.execute();
+		List<FileNames> pairList = getPairListLogic.execute();
 		request.setAttribute("pairList", pairList);
 		    
 		//ログインできているかの確認。・・・はいるか？これ。飛ばそ、とりま。

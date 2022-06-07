@@ -5,9 +5,9 @@ import java.util.List;
 import dao.PairDAO;
 
 public class GetPairListLogic {
-	public List<Pair> execute() {
+	public List<FileNames> execute() {
 		PairDAO dao = new PairDAO();
-		List<Pair> pairList = dao.findAll();
+		List<FileNames> pairList = dao.findAll();
 		return pairList;
 	}
 
