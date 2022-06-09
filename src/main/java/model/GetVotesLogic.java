@@ -1,11 +1,12 @@
 package model;
 
+
 import dao.VotesDAO;
 
 public class GetVotesLogic {
-	public Votes execute(FileNames fileNames) {
+	public Pair execute(Pair tempo) {
 		VotesDAO dao = new VotesDAO();
-		Votes votes = dao.findOne(fileNames);
-		return votes;
+		Pair pair = dao.findOne(tempo);
+		return pair;
 	}	
 }

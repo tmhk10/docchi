@@ -2,30 +2,28 @@ package servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.FileNames;
 import model.GetVotesLogic;
+import model.Pair;
 import model.UpdateVotesLogic;
-import model.Votes;
 import model.VotesLogic;
 
 /**
  * Servlet implementation class VoteServlet
  */
-@WebServlet("/VoteServlet")
-public class VoteServlet extends HttpServlet {
+@WebServlet("/VoteSaveServlet")
+public class VoteSaveServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public VoteServlet() {
+    public VoteSaveServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,30 +41,31 @@ public class VoteServlet extends HttpServlet {
 		String fileName = request.getParameter("fileName");
 		String which = request.getParameter("which");
 		
-		FileNames fileNames = new FileNames(id, fileName);
+		Pair tempo = new Pair(id, fileName);
 		//まず取り出しのLogic
 		GetVotesLogic getVotesLogic = new GetVotesLogic();
-		Votes votes = getVotesLogic.execute(fileNames);
+		Pair pair = getVotesLogic.execute(tempo);
 		//+1のLogic
 		VotesLogic votesLogic = new VotesLogic();
 		if (which != null && which.equals("former")) {
-			votesLogic.vote1(votes);
+			votesLogic.vote1(pair);
 		} else if (which != null && which.equals("latter")){
-			votesLogic.vote2(votes);
+			votesLogic.vote2(pair);
 		}
 		
 		//保存のLogic
 		UpdateVotesLogic updateVotesLogic = new UpdateVotesLogic();
-		updateVotesLogic.execute(votes);
-		//再度取り出しのLogic
-		//GetVotesLogic getVotesLogic = new GetVotesLogic();
-		//Votes vo = getVotesLogic.execute();
+		updateVotesLogic.execute(pair);
+		
+/*		//再度取り出しのLogic
+		GetVotesLogic getVotesLogic = new GetVotesLogic();
+		Votes vo = getVotesLogic.execute();
 		
 		//リクエストスコープにセットしてmain.jspにフォワード
 		request.setAttribute("votes", votes);
 		RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
 		d.forward(request, response);
-		
+*/		
 	}
 
 	/**

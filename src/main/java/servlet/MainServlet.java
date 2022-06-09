@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.FileNames;
 import model.GetPairListLogic;
+import model.Pair;
 
 /**
  * Servlet implementation class Main
@@ -35,10 +35,11 @@ public class MainServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		//データベースからファイル名ペアのリストを取得、それをリクエストスコープに保存
+		//データベースからpairsのリストを取得、それをリクエストスコープに保存
 		GetPairListLogic getPairListLogic = new GetPairListLogic();
-		List<FileNames> pairList = getPairListLogic.execute();
+		List<Pair> pairList = getPairListLogic.execute();
 		request.setAttribute("pairList", pairList);
+		
 		    
 		//ログインできているかの確認。・・・はいるか？これ。飛ばそ、とりま。
 		
