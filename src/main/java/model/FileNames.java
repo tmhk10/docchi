@@ -20,6 +20,13 @@ public class FileNames implements Serializable{
 		
 		this.fileName2 = fileName2;
 	}
+	public FileNames(int id, String fileName1) {
+		this.id = id;
+		this.fileName1 = fileName1;
+		
+		
+	}
+	
 	
 	public int getId() {return id;}
 	public String getFileName1() {return fileName1;}

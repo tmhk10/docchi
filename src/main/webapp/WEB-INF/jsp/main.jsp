@@ -24,9 +24,28 @@
     </c:otherwise>
   </c:choose>  
  
-  <c:forEach var="pair" items="${pairList}" >
-    <p class="pictures"><img src="/docchi/upload/${pair.fileName1}"><img src="/docchi/upload/${pair.fileName2}"></p>
+  <c:forEach var="pair" items="${pairList}">
+    <div class="pictures" onclick="opacity(this)">
+      <a href="/docchi/VoteServlet?id=${pair.id}&fileName=${pair.fileName1}&which=former">
+    	<img src="/docchi/upload/${pair.fileName1}">
+      </a>
+      <a href="/docchi/VoteServlet?id=${pair.id}&fileName=${pair.fileName2}&which=latter">
+    	<img src="/docchi/upload/${pair.fileName2}">
+      </a>
+      <p class="numbers" onmouseover="showNumber(this)">${votes.vote1}票     ${votes.vote2}票</p>
+    </div>
   </c:forEach>
+  
  
+<script>
+function opacity(obj) {
+	obj.style.opacity = 0.3;	
+}
+
+function showNumber(obj) {
+	obj.style.opacity = 1.0;	
+}
+
+</script> 
 </body>
 </html>

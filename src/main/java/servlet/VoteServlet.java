@@ -2,12 +2,17 @@ package servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.FileNames;
+import model.GetVotesLogic;
+import model.UpdateVotesLogic;
+import model.Votes;
 import model.VotesLogic;
 
 /**
@@ -33,23 +38,34 @@ public class VoteServlet extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		request.setCharacterEncoding("UTF-8");
-		String action = request.getParameter("action");
-		//取り出しのLogic
+		//リクエストパラメタ取得
+		int id = Integer.parseInt(request.getParameter("id"));
+		String fileName = request.getParameter("fileName");
+		String which = request.getParameter("which");
 		
+		FileNames fileNames = new FileNames(id, fileName);
+		//まず取り出しのLogic
+		GetVotesLogic getVotesLogic = new GetVotesLogic();
+		Votes votes = getVotesLogic.execute(fileNames);
 		//+1のLogic
 		VotesLogic votesLogic = new VotesLogic();
-		if (action != null && action.equals("one")) {
+		if (which != null && which.equals("former")) {
 			votesLogic.vote1(votes);
-		} else if (action != null && action.equals("two")){
+		} else if (which != null && which.equals("latter")){
 			votesLogic.vote2(votes);
 		}
 		
 		//保存のLogic
-		
-		//取り出しのLogic
+		UpdateVotesLogic updateVotesLogic = new UpdateVotesLogic();
+		updateVotesLogic.execute(votes);
+		//再度取り出しのLogic
+		//GetVotesLogic getVotesLogic = new GetVotesLogic();
+		//Votes vo = getVotesLogic.execute();
 		
 		//リクエストスコープにセットしてmain.jspにフォワード
-		
+		request.setAttribute("votes", votes);
+		RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
+		d.forward(request, response);
 		
 	}
 

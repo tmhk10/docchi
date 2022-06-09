@@ -2,10 +2,21 @@
 
 .pictures {
 	text-align:center;
+	position:relative;
+	width:60%;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 .pictures img {
-	width:30%;
+	width:48%;
 	height:auto;
 	
+}
+
+.numbers {
+	position:absolute;
+	top:80%;
+	opacity:0.0;
+	text-align:center;
 }
