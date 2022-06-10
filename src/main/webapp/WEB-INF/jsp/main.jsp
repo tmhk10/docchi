@@ -25,16 +25,17 @@
   </c:choose>  
  
   <c:forEach var="pair" items="${pairList}">
-  <div class="numbers">${pair.vote1}票     ${pair.vote2}票
-    <div class="pictures" onclick="opacity(this)">
-      <a href="/docchi/VoteSaveServlet?id=${pair.id}&fileName=${pair.fileName1}&which=former">
-    	<img src="/docchi/upload/${pair.fileName1}">
-      </a>
-      <a href="/docchi/VoteSaveServlet?id=${pair.id}&fileName=${pair.fileName2}&which=latter">
-    	<img src="/docchi/upload/${pair.fileName2}">
-      </a>
-      
-    </div>
+    <div class="box">
+      <div class="pictures" onclick="opacity(this)">
+        <a href="/docchi/VoteSaveServlet?id=${pair.id}&fileName=${pair.fileName1}&which=former">
+    	  <img src="/docchi/upload/${pair.fileName1}">
+        </a>
+        <a href="/docchi/VoteSaveServlet?id=${pair.id}&fileName=${pair.fileName2}&which=latter">
+    	  <img src="/docchi/upload/${pair.fileName2}">
+        </a>     
+      </div>
+      <div class="numbers">${pair.vote1}票&emsp;${pair.vote2}票
+      </div>
     </div>
   </c:forEach>
   
