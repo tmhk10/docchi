@@ -27,8 +27,11 @@ public class Pair implements Serializable{
 	}
 	
 	public int getId() {return id;}
-	public String getFileName1() {return fileName1;}	
+	public void setId(int id) {this.id = id;}
+	public String getFileName1() {return fileName1;}
+	public void setFileName1(String fileName1) {this.fileName1 = fileName1;}
 	public String getFileName2() {return fileName2;}
+	public void setFileName2(String fileName2) {this.fileName2 = fileName2;}
 	
 	public int getVote1() {return vote1;}
 	public void setVote1(int vote1) {this.vote1 = vote1;}	

@@ -44,7 +44,7 @@ public class MainServlet extends HttpServlet {
 		//ログインできているかの確認。・・・はいるか？これ。飛ばそ、とりま。
 		
 		//フォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/testmain.jsp");
 		dispatcher.forward(request, response);
 	}
 

@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.pictures {
+	display:inline-flex;
+}
+
+.box {
+	position:relative;
+	
+	
+}
+
+
+
+
+
+.numbers {
+	position:absolute;
+	top:60%;
+	left:44%;
+	z-index:-1;
+	font-size:150%;
+	
+}
