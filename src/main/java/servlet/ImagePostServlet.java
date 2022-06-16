@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import model.CreatePairLogic;
 import model.Login;
 import model.Pair;
-import model.PostPairLogic;
 
 /**
  * Servlet implementation class ImagePostServlet
@@ -75,9 +75,9 @@ public class ImagePostServlet extends HttpServlet {
 			part2.write(path + File.separator + filename2);
 			
 			//画像ファイル名をデータベースに追加
-			Pair pair = new Pair(filename1, filename2);
-			PostPairLogic postPairLogic = new PostPairLogic();
-			postPairLogic.execute(pair);
+			Pair fileNames = new Pair(filename1, filename2);
+			CreatePairLogic createPairLogic = new CreatePairLogic();
+			createPairLogic.execute(fileNames);
 		
 		
 /*		//データベースからファイル名ペアのリストを取得、それをリクエストスコープに保存

@@ -23,7 +23,7 @@ public class PairDAO {
 	    // データベース接続
 	    try(Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 	      // SELECT文の準備
-	      String sql = "SELECT ID,FILENAME1,FILENAME2 FROM fileName_tb ORDER BY ID DESC";
+	      String sql = "SELECT * FROM pairs_tb ORDER BY ID DESC";
 	      PreparedStatement pStmt = conn.prepareStatement(sql);
 	      // SELECTを実行
 	      ResultSet rs = pStmt.executeQuery();
@@ -32,7 +32,9 @@ public class PairDAO {
 	        int id = rs.getInt("ID");
 	        String fileName1 = rs.getString("FILENAME1");
 	        String fileName2 = rs.getString("FILENAME2");
-	        Pair pair = new Pair(id, fileName1, fileName2);
+	        int VOTECOUNT1 = rs.getInt("VOTECOUNT1");
+	        int VOTECOUNT2 = rs.getInt("VOTECOUNT2");
+	        Pair pair = new Pair(id, fileName1, fileName2, VOTECOUNT1, VOTECOUNT2);
 	        pairList.add(pair);
 	      }
 	    } catch (SQLException e) {
@@ -41,11 +43,13 @@ public class PairDAO {
 	    }
 	    return pairList;
 	  }
+	  
+	  
 	  public boolean create(Pair pair) {
-	    // データベース接続
-	    try(Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
+	     // データベース接続
+	     try(Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 		      // INSERT文の準備(idは自動連番なので指定しなくてよい）
-		      String sql = "INSERT INTO fileName_tb(FILENAME1, FILENAME2) VALUES(?, ?)";
+		      String sql = "INSERT INTO pairs_tb(FILENAME1, FILENAME2, VOTECOUNT1, VOTECOUNT2) VALUES(?, ?, 0, 0)";
 		      PreparedStatement pStmt = conn.prepareStatement(sql);
 		      // INSERT文中の「?」に使用する値を設定しSQLを完成
 		      pStmt.setString(1, pair.getFileName1());
@@ -57,11 +61,11 @@ public class PairDAO {
 		      if (result != 1) {
 		        return false;
 		      }
-		    } catch (SQLException e) {
-		      e.printStackTrace();
-		      return false;
-		    }
-		    return true;
-		  }	
+	     } catch (SQLException e) {
+	       e.printStackTrace();
+	       return false;
+	     }
+	     return true;
+	  }	
 
 }

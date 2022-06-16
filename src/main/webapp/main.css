@@ -1,11 +1,34 @@
 @charset "UTF-8";
 
-.pictures {
+.box {
+	position:relative;
+	width:65%;
+	
 	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+
+}
+
+.pictures {
+	
+    text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	
 }
 
 .pictures img {
-	width:30%;
+	width:49%;
 	height:auto;
+	
+}
+
+.numbers {
+	position:absolute;
+	top:60%;
+	left:44%;
+	z-index:-1;
+	font-size:150%;
 	
 }

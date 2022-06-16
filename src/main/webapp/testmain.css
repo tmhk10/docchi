@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+.box {
+	position:relative;
+}
+
+.pictures {
+	display:inline-flex;
+}
+
+.pictures form{
+	flex-basis: auto;
+}
+
+
+
+
+
+
+.numbers {
+	position:absolute;
+	top:60%;
+	left:44%;
+	z-index:-1;
+	font-size:150%;
+	
+}
