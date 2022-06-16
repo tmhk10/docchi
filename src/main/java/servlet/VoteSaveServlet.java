@@ -1,12 +1,15 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import model.GetVotesLogic;
 import model.Pair;
@@ -59,9 +62,19 @@ public class VoteSaveServlet extends HttpServlet {
 		
 /*		//再度取り出しのLogic
 		GetVotesLogic getVotesLogic = new GetVotesLogic();
-		Votes vo = getVotesLogic.execute();
+		Pair vo = getVotesLogic.execute();
+*/		
+		//このpairをもう直接入れてjsonで、で送ろう
+		ObjectMapper mapper = new ObjectMapper();
+		String json = mapper.writeValueAsString(pair);
 		
-		//リクエストスコープにセットしてmain.jspにフォワード
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		out.print(json);
+		out.flush();		
+		
+/*		//リクエストスコープにセットしてmain.jspにフォワード
 		request.setAttribute("votes", votes);
 		RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
 		d.forward(request, response);

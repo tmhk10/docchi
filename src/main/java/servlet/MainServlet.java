@@ -40,12 +40,13 @@ public class MainServlet extends HttpServlet {
 		List<Pair> pairList = getPairListLogic.execute();
 		request.setAttribute("pairList", pairList);
 		
-		    
-		//ログインできているかの確認。・・・はいるか？これ。飛ばそ、とりま。
 		
 		//フォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/testmain.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
 		dispatcher.forward(request, response);
+		
+		//リダイレクト
+		//response.sendRedirect("/docchi/main.jsp");
 	}
 
 	/**

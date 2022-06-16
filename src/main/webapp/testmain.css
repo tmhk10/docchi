@@ -1,14 +1,17 @@
 @charset "UTF-8";
 
+.box {
+	position:relative;
+}
+
 .pictures {
 	display:inline-flex;
 }
 
-.box {
-	position:relative;
-	
-	
+.pictures form{
+	flex-basis: auto;
 }
+
 
 
 

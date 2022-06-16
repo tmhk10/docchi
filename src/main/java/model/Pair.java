@@ -2,11 +2,18 @@ package model;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Pair implements Serializable{
+	@JsonProperty("id")
 	private int id;
-	private String fileName1;	
+	@JsonProperty("fileName1")
+	private String fileName1;
+	@JsonProperty("fileName2")
 	private String fileName2;
+	@JsonProperty("vote1")
 	private int vote1;
+	@JsonProperty("vote2")
 	private int vote2;
 	
 	public Pair() {}
