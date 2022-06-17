@@ -20,7 +20,7 @@
     <c:otherwise>
       <div align="right">
     	※ログイン中です。 <a href="/docchi/LogoutServlet">ログアウト</a>
-    	<a href="/docchi/ImagePostServlet">画像投稿</a>
+    	<a href="/docchi/MenuServlet">メニューへ</a>
   	  </div>
     </c:otherwise>
   </c:choose>  

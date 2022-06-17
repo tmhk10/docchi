@@ -7,8 +7,10 @@
 <title>どっち</title>
 </head>
 <body>
-  <p>ログイン成功</p>
+  <p>メニュー</p>
   <a href="/docchi/MainServlet">トップへ</a>
-  <a href="/docchi/ImagePostServlet">画像投稿</a>
+  &emsp;&emsp;
+  <a href="/docchi/ImagePostServlet">画像投稿</a><br>
+  <a href="/docchi/ImageCheckServlet">自分の投稿一覧・投稿削除</a>
 </body>
 </html>

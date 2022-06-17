@@ -9,6 +9,8 @@
 <body>
   <p>投稿しました。</p>
   <a href="/docchi/MainServlet">トップへ</a>
-  <a href="/docchi/ImagePostServlet">続けて投稿</a>
+  &emsp;&emsp;
+  <a href="/docchi/ImagePostServlet">続けて投稿</a><br>
+  <a href="/docchi/ImageCheckServlet">自分の投稿一覧・投稿削除</a>
 </body>
 </html>
