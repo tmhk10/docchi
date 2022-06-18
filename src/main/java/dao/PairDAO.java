@@ -99,5 +99,28 @@ public class PairDAO {
 	     }
 	     return true;
 	  }	
+	  
+	  
+	  public boolean remove(int id) {
+		    // データベース接続
+		    try(Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
+			      // UPDATE文の準備
+			      String sql = "DELETE FROM pairs_tb  WHERE ID = ?";
+			      PreparedStatement pStmt = conn.prepareStatement(sql);
+			      // INSERT文中の「?」に使用する値を設定しSQLを完成
+			      pStmt.setInt(1, id);
+
+			      // INSERT文を実行
+			      int result = pStmt.executeUpdate();
+
+			      if (result != 1) {
+			        return false;
+			      }
+			} catch (SQLException e) {
+		      e.printStackTrace();
+		      return false;
+		    }
+		    return true;
+	 }		  
 
 }

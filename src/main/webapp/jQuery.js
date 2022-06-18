@@ -1,6 +1,6 @@
 jQuery(function(){
 	jQuery(".pictures").mousedown(function(){
-		jQuery(this).css("opacity",0.3);
+		jQuery(this).css("opacity",0.5);
 	});
 });
 

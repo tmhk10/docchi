@@ -11,7 +11,7 @@
 <body>
   <p>自分の投稿一覧</p>
   <div align="right">
-  	<a href="/docchi/MainServlet">トップへ</a>
+  	<a href="/docchi/MainServlet">トップへ</a>&emsp;
   	<a href="/docchi/MenuServlet">メニューへ戻る</a>
   </div>
   
@@ -24,11 +24,13 @@
         <a tabindex="-2" id="pictinfo">
     	  <img src="/docchi/upload/${pair.fileName2}">
         </a> 
-        <button>削除</button>    
+        
+        <button id="/docchi/RemoveServlet?id=${pair.id}">削除</button>    
       </div>
       <div class="numbers" id="${pair.id}">${pair.vote1}票&emsp;${pair.vote2}票
       </div>
     </div>
+    <br>
   </c:forEach>
 
 
