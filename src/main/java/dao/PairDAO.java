@@ -12,17 +12,21 @@ import model.Login;
 import model.Pair;
 
 public class PairDAO {
-	  // データベース接続に使用する情報
-	 
+	  // データベース接続に使用する情報	 
  	  private final String JDBC_URL ="jdbc:mysql://localhost/docchi";
 	  private final String DB_USER = "root";
 	  private final String DB_PASS = "(tomo:ebi)1013";
 
 	  public List<Pair> findAll() {
+		  Connection conn = null;	
 	    List<Pair> pairList = new ArrayList<Pair>();
 
 	    // データベース接続
-	    try(Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
+	    try {
+	    	//JDBCドライバを最初に読み込む
+	    	  Class.forName("com.mysql.cj.jdbc.Driver");
+	    	//データベースに接続
+	    	  conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
 	      // SELECT文の準備
 	      String sql = "SELECT * FROM pairs_tb ORDER BY ID DESC";
 	      PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -41,7 +45,20 @@ public class PairDAO {
 	    } catch (SQLException e) {
 	      e.printStackTrace();
 	      return null;
-	    }
+	    } catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			return null;
+	    }finally {
+			//データベース切断
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e){
+					e.printStackTrace();
+					return null;
+				}
+			}
+		}
 	    return pairList;
 	  }
 	  

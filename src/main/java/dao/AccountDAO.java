@@ -16,8 +16,7 @@ public class AccountDAO {
 	  private final String DB_PASS = "(tomo:ebi)1013";
 	  
 	  public Account findByLogin(Login login) {
-		Connection conn = null;
-		
+		Connection conn = null;		
 
 		Account account = null;
 		// データベースへ接続
