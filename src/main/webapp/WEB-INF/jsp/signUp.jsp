@@ -22,7 +22,7 @@
 	       <c:forEach var="i" begin="1" end="31" step="1"><option value="${i}">${i}</option></c:forEach></select>日
 	       &emsp;<span id="dob"></span>
 	       <br>
-	<button>登録</button>
+	<input type="submit" value="登録">
   </form>
   
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
