@@ -19,8 +19,8 @@
     </c:when>
     <c:otherwise>
       <div align="right">
-    	※ログイン中です。 <a href="/docchi/LogoutServlet">ログアウト</a>
-    	<a href="/docchi/ImagePostServlet">画像投稿</a>
+    	※ログイン中です。 <a href="/docchi/LogoutServlet">ログアウト</a>&emsp;
+    	<a href="/docchi/MenuServlet">メニューへ</a>
   	  </div>
     </c:otherwise>
   </c:choose>  
@@ -38,6 +38,7 @@
       <div class="numbers" id="${pair.id}">${pair.vote1}票&emsp;${pair.vote2}票
       </div>
     </div>
+    <br>
   </c:forEach>
   
  

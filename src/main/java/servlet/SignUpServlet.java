@@ -10,20 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Account;
 import model.Login;
-import model.LoginLogic;
+import model.SignUpLogic;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class SignUpServlet
  */
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/SignUpServlet")
+public class SignUpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public SignUpServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,8 +36,8 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		//login.jspにフォワード
-		RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+		//signUp.jspにフォワード
+		RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/signUp.jsp");
 		d.forward(request, response);
 	}
 
@@ -51,23 +52,30 @@ public class LoginServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
+		String sex = request.getParameter("sex");
+		String year = request.getParameter("year");
+		String month = request.getParameter("month");
+		String day = request.getParameter("day");
+		String dob = year + "-" + month + "-" + day;
 		
-		Login login = new Login(name, pass);
-		LoginLogic loginLogic = new LoginLogic();
-		boolean result = loginLogic.execute(login);
+		//登録
+		Account account = new Account(name,pass,sex,dob);
+		SignUpLogic signUpLogic = new SignUpLogic();
+		boolean result = signUpLogic.execute(account);
 		
-		if (result) {
+		if(result) {
 			//セッションスコープに保存
+			Login login = new Login(name,pass);
 			HttpSession session = request.getSession();
 			session.setAttribute("login", login);
-			//loginOK.jspへフォワード
-			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/loginOK.jsp");
+			//signUpOK.jspへフォワード
+			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/signUpOK.jsp");
 			d.forward(request, response);
 		} else {
-			//loginNG.jspへフォワード
-			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/loginNG.jsp");
+			//signUpNG.jspへフォワード
+			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/signUpNG.jsp");
 			d.forward(request, response);
 		}
-	}
+	}	
 
 }

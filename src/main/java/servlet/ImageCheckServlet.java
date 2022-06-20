@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,20 +11,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.GetPersonalListLogic;
 import model.Login;
-import model.LoginLogic;
+import model.Pair;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class ImageCheckServlet
  */
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/ImageCheckServlet")
+public class ImageCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public ImageCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,9 +37,21 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		//login.jspにフォワード
-		RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
-		d.forward(request, response);
+		//ログインしてる確認取れた時のみ、投稿画面へフォワード
+		HttpSession session = request.getSession();
+		Login login = (Login)session.getAttribute("login");
+		if(login == null) {
+			response.sendRedirect("/docchi/MainServlet");
+		} else {
+			//セッションのnameと等しいcontributorのpairのListを作って、imageCheck.jspにフォワード。
+			//データベースからpairsのリストを取得、それをリクエストスコープに保存
+			GetPersonalListLogic getPersonalListLogic = new GetPersonalListLogic();
+			List<Pair> personalList = getPersonalListLogic.execute(login);
+			request.setAttribute("personalList", personalList);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/imageCheck.jsp");
+			rd.forward(request, response);
+		}
 	}
 
 	/**
@@ -45,29 +59,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//doGet(request, response);
-		
-		//リクエストパラメラ取得
-		request.setCharacterEncoding("UTF-8");
-		String name = request.getParameter("name");
-		String pass = request.getParameter("pass");
-		
-		Login login = new Login(name, pass);
-		LoginLogic loginLogic = new LoginLogic();
-		boolean result = loginLogic.execute(login);
-		
-		if (result) {
-			//セッションスコープに保存
-			HttpSession session = request.getSession();
-			session.setAttribute("login", login);
-			//loginOK.jspへフォワード
-			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/loginOK.jsp");
-			d.forward(request, response);
-		} else {
-			//loginNG.jspへフォワード
-			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/loginNG.jsp");
-			d.forward(request, response);
-		}
+		doGet(request, response);
 	}
 
 }

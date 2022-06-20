@@ -7,7 +7,7 @@
 <title>どっち</title>
 </head>
 <body>
-  <p>メニュー</p>
+  <p>登録完了しました。</p>
   <a href="/docchi/MainServlet">トップへ</a>
   &emsp;&emsp;
   <a href="/docchi/ImagePostServlet">画像投稿</a><br>

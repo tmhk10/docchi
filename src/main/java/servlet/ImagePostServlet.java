@@ -74,10 +74,13 @@ public class ImagePostServlet extends HttpServlet {
 			part1.write(path + File.separator + filename1);
 			part2.write(path + File.separator + filename2);
 			
-			//画像ファイル名をデータベースに追加
+			//画像ファイル名・投稿者名をデータベースに追加
 			Pair fileNames = new Pair(filename1, filename2);
+			HttpSession session = request.getSession();
+			Login login = (Login)session.getAttribute("login");
+			
 			CreatePairLogic createPairLogic = new CreatePairLogic();
-			createPairLogic.execute(fileNames);
+			createPairLogic.execute(fileNames,login);
 		
 		
 /*		//データベースからファイル名ペアのリストを取得、それをリクエストスコープに保存

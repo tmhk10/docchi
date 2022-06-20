@@ -7,10 +7,7 @@
 <title>どっち</title>
 </head>
 <body>
-  <p>メニュー</p>
+  <p>新規登録に失敗しました。</p>
   <a href="/docchi/MainServlet">トップへ</a>
-  &emsp;&emsp;
-  <a href="/docchi/ImagePostServlet">画像投稿</a><br>
-  <a href="/docchi/ImageCheckServlet">自分の投稿一覧・投稿削除</a>
 </body>
 </html>
