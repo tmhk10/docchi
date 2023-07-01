@@ -23,18 +23,16 @@
 
 
 ## 使用技術
-<ul>
-*html
-*css
-*javascript
-*jquery
-*java
-*MySQL 5.7
-*Apache Tomcat 9
-*AWS
-  *EC2
-  *RDS
-</ul>
+* html
+* css
+* javascript
+* jquery
+* java
+* MySQL 5.7
+* Apache Tomcat 9
+* AWS
+  * EC2
+  * RDS
 
 
 ## 機能一覧
@@ -53,8 +51,6 @@
 
 
 ## 文責
-<ul>
-*作成者：上條智彦
-*E-mail：tomohiko-kamijo@icloud.com
-</ul>
+- 作成者：上條智彦
+- E-mail：tomohiko-kamijo@icloud.com
 
