@@ -2,24 +2,37 @@
 
 
 ## 概要
-２枚の画像をペアで投稿して、どっちがいいかのアンケートを取れます。
-
+２枚の画像をペアで投稿して、どっちがいいかのアンケートを取れます。  
 画像をクリックするとクリックした方の画像に票が入り,その場で票数を確認できます。
 
+ 
 ## デモ
 <img src="https://github.com/tmhk10/docchi/assets/100889070/af205c59-8db4-47ba-ab41-65253e610990" width="50%">
 
+
 ## URL
-<ul>
-<li>URL : http://ec2-43-207-170-48.ap-northeast-1.compute.amazonaws.com:8080/docchi
-<li>テスト用アカウント   ユーザーネーム：a<br> パスワード：aaa
-</ul>
+*URL : http://ec2-43-207-170-48.ap-northeast-1.compute.amazonaws.com:8080/docchi
+*テスト用アカウント
+  *ユーザーネーム：a
+  *パスワード：aaa
+
+
 
 ## 制作背景
 ログイン・投稿・削除といった機能を持ったサービス、またそれをデータベースと接続させるということを職業訓練校で学んだので、それに近い物を作って、awsを使ってデプロイしてみようと思って作りました。
 
+
 ## 使用技術
-html5,css,javascript,jquery,java
+*html
+*css
+*javascript
+*jquery
+*java
+*MySQL 5.7
+*Apache Tomcat 9
+*AWS
+  *EC2
+  *RDS
 
 ## 機能一覧
 <ul>
@@ -35,8 +48,7 @@ html5,css,javascript,jquery,java
 画面遷移なく票数が入るようにする、票数が確認できるということを作る前にイメージしており、それを実現させることに苦労しました。
 
 ## 文責
-<ul>
-<li>作成者：上條智彦<br>
-<li>E-mail：tomohiko-kamijo@icloud.com<br>
-</ul>
+*作成者：上條智彦
+*E-mail：tomohiko-kamijo@icloud.com
+
 
