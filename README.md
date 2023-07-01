@@ -11,10 +11,10 @@
 
 
 ## URL
--URL : http://ec2-43-207-170-48.ap-northeast-1.compute.amazonaws.com:8080/docchi
--テスト用アカウント
-  -ユーザーネーム：a
-  -パスワード：aaa
+- URL : http://ec2-43-207-170-48.ap-northeast-1.compute.amazonaws.com:8080/docchi
+- テスト用アカウント
+  - ユーザーネーム：a
+  - パスワード：aaa
 
 
 
