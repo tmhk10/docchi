@@ -11,10 +11,10 @@
 
 
 ## URL
-*URL : http://ec2-43-207-170-48.ap-northeast-1.compute.amazonaws.com:8080/docchi
-*テスト用アカウント
-  *ユーザーネーム：a
-  *パスワード：aaa
+-URL : http://ec2-43-207-170-48.ap-northeast-1.compute.amazonaws.com:8080/docchi
+-テスト用アカウント
+  -ユーザーネーム：a
+  -パスワード：aaa
 
 
 
@@ -23,6 +23,7 @@
 
 
 ## 使用技術
+<ul>
 *html
 *css
 *javascript
@@ -33,6 +34,8 @@
 *AWS
   *EC2
   *RDS
+</ul>
+
 
 ## 機能一覧
 <ul>
@@ -44,11 +47,14 @@
   <li>投稿削除
 </ul>
 
+
 ## 苦労した部分
 画面遷移なく票数が入るようにする、票数が確認できるということを作る前にイメージしており、それを実現させることに苦労しました。
 
+
 ## 文責
+<ul>
 *作成者：上條智彦
 *E-mail：tomohiko-kamijo@icloud.com
-
+</ul>
 
