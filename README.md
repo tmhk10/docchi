@@ -21,10 +21,11 @@ html5,css,javascript,jquery,java
 
 ## 機能一覧
 <ul>
+  <li>投稿画像一覧表示
   <li>ユーザー登録
   <li>ログイン
   <li>画像投稿
-  <li>投稿一覧表示
+  <li>ユーザー別投稿画像一覧表示
   <li>投稿削除
 </ul>
 
