@@ -51,7 +51,7 @@
 
 
 ## ER図
-<img src="https://github.com/tmhk10/docchi/assets/100889070/5c22cc7d-c82a-458b-b4f6-ac11287a2789" width="50%">
+<img src="https://github.com/tmhk10/docchi/assets/100889070/455b7aed-db9f-44c6-a056-6730f5aad32a" width="50%">
 
 ## 文責
 - 作成者：上條智彦
