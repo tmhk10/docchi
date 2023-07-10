@@ -11,7 +11,7 @@
 
 
 ## URL
-- URL : http://ec2-43-207-170-48.ap-northeast-1.compute.amazonaws.com:8080/docchi
+- URL : http://docchi-alb-357751804.ap-northeast-1.elb.amazonaws.com/docchi/
 - テスト用アカウント
   - ユーザーネーム：a
   - パスワード：aaa
@@ -52,6 +52,9 @@
 
 ## ER図
 <img src="https://github.com/tmhk10/docchi/assets/100889070/56188985-feed-42f1-84cd-b887197e4968" width="50%">
+
+## AWS構造図
+<img src="https://github.com/tmhk10/docchi/assets/100889070/0393be79-0195-4f84-b679-2d6e7ab776d5" width="50%">
 
 ## 文責
 - 作成者：上條智彦
