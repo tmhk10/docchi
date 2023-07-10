@@ -7,7 +7,7 @@
 
  
 ## デモ
-<img src="https://github.com/tmhk10/docchi/assets/100889070/af205c59-8db4-47ba-ab41-65253e610990" width="50%">
+<img src="https://github.com/tmhk10/docchi/assets/100889070/af205c59-8db4-47ba-ab41-65253e610990" width="60%">
 
 
 ## URL
@@ -56,7 +56,7 @@
 <img src="https://github.com/tmhk10/docchi/assets/100889070/56188985-feed-42f1-84cd-b887197e4968" width="50%">
 
 ## AWS構造図
-<img src="https://github.com/tmhk10/docchi/assets/100889070/0393be79-0195-4f84-b679-2d6e7ab776d5" width="50%">
+<img src="https://github.com/tmhk10/docchi/assets/100889070/0393be79-0195-4f84-b679-2d6e7ab776d5" width="60%">
 
 ## 文責
 - 作成者：上條智彦
