@@ -29,10 +29,12 @@
 * jquery
 * java
 * MySQL 5.7
-* Apache Tomcat 9
+* Apache
+* Tomcat 9
 * AWS
   * EC2
   * RDS
+  * VPC
 
 
 ## 機能一覧
