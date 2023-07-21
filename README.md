@@ -60,5 +60,5 @@
 
 ## 文責
 - 作成者：上條智彦
-- E-mail：tomohiko-kamijo@icloud.com
+- E-mail：tomohiko.kamijo@icloud.com
 
